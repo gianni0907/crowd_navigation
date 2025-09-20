@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fault-Tolerant Quadruped Locomotion</title>
+    <title>Wheeled Robot Crowd Navigation</title>
     <link rel="stylesheet" href="styles.css">
     <!-- Load MathJax for LaTeX rendering -->
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -11,27 +11,45 @@
 <body>
     <header>
         <div class="container">
-            <h1>Fault-Tolerant Quadruped Locomotion</h1>
-            <p class="subtitle">Reinforcement Learning Policies for Robot Control</p>
+            <h1>Wheeled Robot Crowd Navigation</h1>
+            <p class="subtitle">A Sensor-Based Model Predictive Control scheme for Safe Multi-Room Crowd Navigation</p>
+            <p class="authors">Giovanbattista Gravina, Francesco D'Orazio, Michele Cipriano, Tommaso Belvedere, Giuseppe Oriolo</p>
+            <div class="header-links">
+                <a href="#" class="header-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                    </svg>
+                    Paper
+                </a>
+                <a href="#" class="header-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z"/>
+                    </svg>
+                    GitHub
+                </a>
+            </div>
         </div>
     </header>
     
     <main class="container">
         <section class="intro">
             <h2>Project Outline</h2>
-            <p>Our research focuses on fault-tolerant locomotion for quadruped robots. We showcase preliminary results obtained using an asymmetric actor-critic architecture trained with Proximal Policy Optimization (PPO) algorithms.</p>
+            <p>This project presents a sensor-based Nonlinear Model Predictive Control (NMPC) framework for safe robot navigation in multi-room environments populated with static obstacles and moving humans. The approach leverages LiDAR and RGB-D data to provide accurate perception and Kalman Filters, regulated by Finite State Machines, for crowd state estimation. High-level planning is achieved by decomposing the environment into convex navigable regions and computing room-to-room trajectories toward the goal. Motion generation relies on NMPC with Control Barrier Function (CBF) constraints to ensure safe and efficient collision avoidance in the presence of both static and dynamic agents. The modular architecture integrates planning, perception, and control into a unified system adaptable to different platforms and sensor configurations.</p>
 
             <figure class="svg-viewer">
                 <h3>Architecture</h3>
                 <div style="height: 24px;"></div>
-                <img src="images/architecture.svg" alt="Project Overview Diagram" style="width:100%; max-width:600px; display:block; margin:auto;">
-                <figcaption>Asymmetric actor-critic model used for fault-tolerant quadruped locomotion</figcaption>
+                <img src="images/block_scheme.svg" alt="Project Overview Diagram" style="width:100%; max-width:600px; display:block; margin:auto;">
+                <figcaption>Block diagram of the proposed NMPC framework</figcaption>
             </figure>
         </section>
 
         <section class="videos">
             <h2>Simulations</h2>
             <p>
+                Work in progress...
+            </p>
+            <!-- <p>
                 The following MuJoCo simulations show a quadruped robot tracking a commanded velocity—linear in 
                 <span id="vx">\(x\)</span> and 
                 <span id="vy">\(y\)</span> direction and angular around 
@@ -40,15 +58,15 @@
             <div class="video-grid" style="display: flex; gap: 24px; justify-content: center;">
                 <video src="videos/nominal_alleup_noisy.mp4" controls autoplay loop muted style="max-width: 100%; width: 400px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
                 <video src="videos/swing_ferkup.mp4" controls autoplay loop muted style="max-width: 100%; width: 400px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
-            </div>
+            </div> -->
         </section>
 
         <section class="videos">
             <h2>Experiments</h2>
             <p>
-                Nominal locomotion policy deployed on a real quadruped robot ...
+                Work in progress...
             </p>
-            <div class="video-grid" style="display: flex; gap: 24px; justify-content: center;">
+            <!-- <div class="video-grid" style="display: flex; gap: 24px; justify-content: center;">
                 <video src="videos/exp_lb_fw.mp4" controls autoplay loop muted style="max-width: 100%; width: 250px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
                 <video src="videos/exp_lb_rotonspot.mp4" controls autoplay loop muted style="max-width: 100%; width: 250px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
                 <video src="videos/exp_lb_bw.mp4" controls autoplay loop muted style="max-width: 100%; width: 250px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
@@ -63,15 +81,23 @@
                 <video src="videos/exp_fb_bw.mp4" controls autoplay loop muted style="max-width: 100%; width: 300px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
                 <video src="videos/exp_fb_side.mp4" controls autoplay loop muted style="max-width: 100%; width: 300px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
             </div>
-            <div style="height: 24px;"></div>
+            <div style="height: 24px;"></div> -->
             <p>
-                Work in progress for sim-to-real transfer for fault-tolerant locomotion...
+                Work in progress...
             </p>
-            <div class="video-grid" style="display: flex; gap: 24px; justify-content: center;">
+            <!-- <div class="video-grid" style="display: flex; gap: 24px; justify-content: center;">
                 <video src="videos/exp_lb_swing.mp4" controls autoplay loop muted style="max-width: 100%; width: 400px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
+            </div> -->
+        </section>
+        <section class="project-explanation">
+            <h2>Project Explanation</h2>
+            <p>
+                Watch the following video for a comprehensive overview of the project.
+            </p>
+            <div style="display: flex; justify-content: center; margin: 24px 0;">
+                <video src="videos/project_explanation.mp4" controls style="max-width: 100%; width: 600px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
             </div>
         </section>
-
         <!-- <section class="features">
             <h2>Key Features</h2>
             <div class="features-grid">
@@ -94,6 +120,7 @@
     <footer>
         <div class="container">
             <p>&copy; 2025 Giovanbattista Gravina - All rights reserved.</p>
+            <p>Research conducted at the <a href="https://www.diag.uniroma1.it/~labrob/" target="_blank" rel="noopener" style="color: #fff;">DIAG Robotics Lab</a>, Sapienza University of Rome.</p>
         </div>
     </footer>
 
