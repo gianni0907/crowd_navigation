@@ -33,63 +33,51 @@
     <main class="container">
         <section class="intro">
             <h2>Project Outline</h2>
-            <p>This project presents a sensor-based Nonlinear Model Predictive Control (NMPC) framework for safe robot navigation in multi-room environments populated with static obstacles and moving humans. The approach leverages LiDAR and RGB-D data to provide accurate perception and Kalman Filters, regulated by Finite State Machines, for crowd state estimation. High-level planning is achieved by decomposing the environment into convex navigable regions and computing room-to-room trajectories toward the goal. Motion generation relies on NMPC with Control Barrier Function (CBF) constraints to ensure safe and efficient collision avoidance in the presence of both static and dynamic agents. The modular architecture integrates planning, perception, and control into a unified system adaptable to different platforms and sensor configurations.</p>
+            <p>This project presents a sensor-based Nonlinear Model Predictive Control (NMPC) framework for safe robot navigation in multi-room environments populated with static obstacles and moving humans. The approach leverages LiDAR and RGB-D data to provide accurate perception and Kalman Filters, regulated by Finite State Machines, for crowd state estimation. High-level planning is achieved by decomposing the environment into convex navigable regions and computing a sequence of regions leading to the assigned goal position. Motion generation relies on NMPC with Control Barrier Function (CBF) constraints to ensure safe and efficient collision avoidance in the presence of both static and dynamic agents. The modular architecture integrates planning, perception, and control into a unified system adaptable to different platforms and sensor configurations.</p>
 
             <figure class="svg-viewer">
                 <h3>Architecture</h3>
                 <div style="height: 24px;"></div>
                 <img src="images/block_scheme.svg" alt="Project Overview Diagram" style="width:100%; max-width:600px; display:block; margin:auto;">
-                <figcaption>Block diagram of the proposed NMPC framework</figcaption>
+                <figcaption>
+                    Block diagram of the proposed framework. The red block processes raw observations <span>\(\mathcal{O}\)</span> to produce crowd motion prediction <span>\(\mathcal{P}\)</span> via detection, estimation and prediction modules. The yellow block decomposes the environment in a set of convex regions and constructs the graph <span>\(\mathcal{G}\)</span>. The green module plans the sequence of regions <span>\(\mathcal{S}\)</span> to reach the goal position <span>\(\boldsymbol{\eta}^g\)</span> and the blue module generates the control inputs <span>\(\mathbf{u}\)</span> via NMPC.
+                </figcaption>
             </figure>
         </section>
 
         <section class="videos">
             <h2>Simulations</h2>
             <p>
-                Work in progress...
-            </p>
-            <!-- <p>
-                The following MuJoCo simulations show a quadruped robot tracking a commanded velocity—linear in 
-                <span id="vx">\(x\)</span> and 
-                <span id="vy">\(y\)</span> direction and angular around 
-                <span id="wz">\(z\)</span>-axis—while empowered by a nominal locomotion policy (left) and a fault-tolerant locomotion policy (right).
+                The following Gazebo simulations show the TIAGo mobile manipulator navigating various multi-room environments populated with static obstacles and moving humans, while being empowered by the proposed NMPC scheme.
             </p>
             <div class="video-grid" style="display: flex; gap: 24px; justify-content: center;">
-                <video src="videos/nominal_alleup_noisy.mp4" controls autoplay loop muted style="max-width: 100%; width: 400px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
-                <video src="videos/swing_ferkup.mp4" controls autoplay loop muted style="max-width: 100%; width: 400px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
-            </div> -->
+                <video src="videos/2r10a_1.mp4" controls autoplay loop muted style="max-width: 100%; width: 330px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
+                <video src="videos/corridor_1.mp4" controls autoplay loop muted style="max-width: 100%; width: 330px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
+                <video src="videos/2r15a.mp4" controls autoplay loop muted style="max-width: 100%; width: 330px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
+            </div>
+            <!-- <div style="height: 24px;"></div> -->
+            <div class="video-grid" style="display: flex; gap: 24px; justify-content: center;">
+                <video src="videos/2r10a_2.mp4" controls autoplay loop muted style="max-width: 100%; width: 330px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
+                <video src="videos/corridor_2.mp4" controls autoplay loop muted style="max-width: 100%; width: 330px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
+                <video src="videos/3r15a.mp4" controls autoplay loop muted style="max-width: 100%; width: 330px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
+            </div>
         </section>
 
         <section class="videos">
             <h2>Experiments</h2>
             <p>
-                Work in progress...
-            </p>
-            <!-- <div class="video-grid" style="display: flex; gap: 24px; justify-content: center;">
-                <video src="videos/exp_lb_fw.mp4" controls autoplay loop muted style="max-width: 100%; width: 250px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
-                <video src="videos/exp_lb_rotonspot.mp4" controls autoplay loop muted style="max-width: 100%; width: 250px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
-                <video src="videos/exp_lb_bw.mp4" controls autoplay loop muted style="max-width: 100%; width: 250px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
-                <video src="videos/exp_lb_lside.mp4" controls autoplay loop muted style="max-width: 100%; width: 250px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
-            </div>
-            <div style="height: 24px;"></div>
-            <p>
-                ...also including the arms
+                Clips of the real robot traversing doors and avoiding humans in diverse dynamic environments.
             </p>
             <div class="video-grid" style="display: flex; gap: 24px; justify-content: center;">
-                <video src="videos/exp_fb_fw.mp4" controls autoplay loop muted style="max-width: 100%; width: 300px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
-                <video src="videos/exp_fb_bw.mp4" controls autoplay loop muted style="max-width: 100%; width: 300px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
-                <video src="videos/exp_fb_side.mp4" controls autoplay loop muted style="max-width: 100%; width: 300px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
+                <video src="videos/basement.mp4" controls autoplay loop muted style="max-width: 100%; width: 350px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
+                <video src="videos/hall_2.mp4" controls autoplay loop muted style="max-width: 100%; width: 350px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
+                <video src="videos/hall_5.mp4" controls autoplay loop muted style="max-width: 100%; width: 350px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
             </div>
-            <div style="height: 24px;"></div> -->
-            <p>
-                Work in progress...
-            </p>
-            <!-- <div class="video-grid" style="display: flex; gap: 24px; justify-content: center;">
-                <video src="videos/exp_lb_swing.mp4" controls autoplay loop muted style="max-width: 100%; width: 400px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
-            </div> -->
+            <div style="height: 24px;"></div>
+
         </section>
-        <section class="project-explanation">
-            <h2>Project Explanation</h2>
+        <section class="videos">
+            <h2>Full Project Video</h2>
             <p>
                 Watch the following video for a comprehensive overview of the project.
             </p>
