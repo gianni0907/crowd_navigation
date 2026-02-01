@@ -1,6 +1,6 @@
 # A Sensor-Based Model Predictive Control Scheme for Safe Multi-Room Crowd Navigation
 
-This repository contains videos and a demonstration website for a project on wheeled robot navigation in crowded multi-room environments.
+This repository contains videos and a demonstration [website](https://gianni0907.github.io/crowd_navigation) for a project on wheeled robot navigation in crowded multi-room environments.
 
 ## Overview
 
