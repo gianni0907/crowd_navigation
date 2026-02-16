@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wheeled Robot Crowd Navigation</title>
+    <title>Mobile Robot Crowd Navigation</title>
     <link rel="stylesheet" href="styles.css">
     <!-- Load MathJax for LaTeX rendering -->
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -11,7 +11,7 @@
 <body>
     <header>
         <div class="container">
-            <h1>A Sensor-Based Model Predictive Control Scheme for Safe Multi-Room Crowd Navigation</h1>
+            <h1>Crowd Navigation in a Multi-Room Environment: a Model Predictive Control Framework for Mobile Robots</h1>
             <p class="authors">Giovanbattista Gravina, Francesco D'Orazio, Michele Cipriano, Tommaso Belvedere, Giuseppe Oriolo</p>
             <div class="header-links">
                 <a href="#" class="header-link">
@@ -33,7 +33,7 @@
     <main class="container">
         <section class="intro">
             <h2>Project Outline</h2>
-            <p>This project presents a sensor-based Model Predictive Control (MPC) framework for safe robot navigation in multi-room environments populated with static obstacles and moving humans. The approach leverages LiDAR and RGB-D data to provide accurate perception and Kalman Filters, regulated by Finite State Machines, for crowd state estimation. High-level planning is achieved by decomposing the environment into convex navigable regions and computing a sequence of regions leading to the assigned goal position. Motion generation relies on MPC with Control Barrier Function (CBF) constraints to ensure safe and efficient collision avoidance in the presence of both static and dynamic agents. The modular architecture integrates planning, perception, and control into a unified system adaptable to different platforms and sensor configurations.</p>
+            <p>This paper presents a sensor-based Model Predictive Control (MPC) scheme designed for safe crowd navigation in non-convex environments. The proposed framework decomposes the free space into a set of overlapping convex regions to construct a topological graph, enabling a high-level planner to compute optimal sequences of traversable areas. To effectively perceive the crowd, the system employs a robust perception pipeline that fuses 2D LiDAR data with semantic information from an RGB-D camera, utilizing Kalman Filters to estimate and predict human motion. These predictions are integrated into an MPC controller which generate robot commands by enforcing safety through discrete-time Control Barrier Functions, ensuring the robot avoids collisions while remaining within navigable regions. The modular architecture integrates planning, perception, and control into a unified system adaptable to different platforms and sensor configurations.</p>
 
             <figure class="svg-viewer">
                 <h3>Architecture</h3>
@@ -78,10 +78,10 @@
         <section class="videos">
             <h2>Full Project Video</h2>
             <p>
-                Watch the following <a href="https://youtu.be/4ECUeJwYD9Y" target="_blank" rel="noopener">video</a> for a comprehensive overview of the project.
+                Watch the following <a href="https://youtu.be/RYsQ3zmv30w" target="_blank" rel="noopener">video</a> for a comprehensive overview of the project.
             </p>
             <div style="display: flex; justify-content: center; margin: 24px 0;">
-                <iframe width="1000" height="562" src="https://www.youtube.com/embed/4ECUeJwYD9Y" title="A Sensor-Based Model Predictive Control Scheme for Safe Multi-Room Crowd Navigation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="1000" height="562" src="https://www.youtube.com/embed/RYsQ3zmv30w" title="Crowd Navigation in a Multi-Room Environment: a Model Predictive Control Framework for Mobile Robots" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         </section>
         <!-- <section class="features">
