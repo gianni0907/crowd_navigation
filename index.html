@@ -32,15 +32,16 @@
     
     <main class="container">
         <section class="intro">
-            <h2>Project Outline</h2>
-            <p>This paper presents a sensor-based Model Predictive Control (MPC) scheme designed for safe crowd navigation in non-convex environments. The proposed framework decomposes the free space into a set of overlapping convex regions to construct a topological graph, enabling a high-level planner to compute optimal sequences of traversable areas. To effectively perceive the crowd, the system employs a robust perception pipeline that fuses 2D LiDAR data with semantic information from an RGB-D camera, utilizing Kalman Filters to estimate and predict human motion. These predictions are integrated into an MPC controller which generate robot commands by enforcing safety through discrete-time Control Barrier Functions, ensuring the robot avoids collisions while remaining within navigable regions. The modular architecture integrates planning, perception, and control into a unified system adaptable to different platforms and sensor configurations.</p>
+            <h2>Abstract</h2>
+            <p>Mobile robots operating in human-populated environments must navigate complex, multi-room spaces while ensuring safety, i.e. generating collision-free motion. This paper presents a sensor-based Model Predictive Control (MPC) scheme designed for safe crowd navigation in such non-convex environments. The proposed framework decomposes the free space into a set of overlapping convex regions to construct a topological graph, enabling a high-level planner to compute optimal sequences of traversable areas. To effectively perceive the crowd, the system employs a robust perception pipeline that fuses 2D LiDAR data with semantic information from an RGB-D camera, utilizing Kalman Filters (KFs) to estimate and predict human motion. These predictions are integrated into an MPC controller which generates robot commands by enforcing safety through Discrete-Time Control Barrier Functions (DT-CBFs), ensuring the robot avoids collisions while remaining within navigable regions. The approach is validated through high-fidelity simulations and real-world experiments using the TIAGo mobile manipulator. Results demonstrate that integrating vision-based semantic data with geometric constraints significantly improves collision avoidance and success rates in cluttered, multi-room scenarios.</p>
 
-            <figure class="svg-viewer">
+            <figure>
                 <h3>Architecture</h3>
                 <div style="height: 24px;"></div>
                 <img src="images/block_scheme.svg" alt="Project Overview Diagram" style="width:100%; max-width:600px; display:block; margin:auto;">
                 <figcaption>
                     Block diagram of the proposed framework. The red block processes raw observations <span>\(\mathcal{O}\)</span> to produce crowd motion prediction <span>\(\mathcal{P}\)</span> via detection, estimation and prediction modules. The yellow block decomposes the environment in a set of convex regions and constructs the graph <span>\(\mathcal{G}\)</span>. The green module plans the sequence of regions <span>\(\mathcal{S}\)</span> to reach the goal position <span>\(\boldsymbol{p}^{\text{goal}}\)</span> and the blue module generates the control inputs <span>\(\mathbf{u}\)</span> via MPC.
+                </figcaption>
             </figure>
         </section>
 
@@ -49,16 +50,15 @@
             <p>
                 The following Gazebo simulations show the TIAGo mobile manipulator navigating various multi-room environments populated with static obstacles and moving humans, while being empowered by the proposed MPC scheme.
             </p>
-            <div class="video-grid" style="display: flex; gap: 24px; justify-content: center;">
-                <video src="videos/2r10a_1.mp4" controls autoplay loop muted style="max-width: 100%; width: 330px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
-                <video src="videos/corridor_1.mp4" controls autoplay loop muted style="max-width: 100%; width: 330px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
-                <video src="videos/2r15a.mp4" controls autoplay loop muted style="max-width: 100%; width: 330px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
+            <div class="video-grid">
+                <video src="videos/2r10a_1.mp4" controls autoplay loop muted playsinline></video>
+                <video src="videos/corridor_1.mp4" controls autoplay loop muted playsinline></video>
+                <video src="videos/2r15a.mp4" controls autoplay loop muted playsinline></video>
             </div>
-            <!-- <div style="height: 24px;"></div> -->
-            <div class="video-grid" style="display: flex; gap: 24px; justify-content: center;">
-                <video src="videos/2r10a_2.mp4" controls autoplay loop muted style="max-width: 100%; width: 330px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
-                <video src="videos/corridor_2.mp4" controls autoplay loop muted style="max-width: 100%; width: 330px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
-                <video src="videos/3r15a.mp4" controls autoplay loop muted style="max-width: 100%; width: 330px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
+            <div class="video-grid">
+                <video src="videos/2r10a_2.mp4" controls autoplay loop muted playsinline></video>
+                <video src="videos/corridor_2.mp4" controls autoplay loop muted playsinline></video>
+                <video src="videos/3r15a.mp4" controls autoplay loop muted playsinline></video>
             </div>
         </section>
 
@@ -67,40 +67,21 @@
             <p>
                 Clips of the real robot traversing doors and avoiding humans in diverse dynamic environments.
             </p>
-            <div class="video-grid" style="display: flex; gap: 24px; justify-content: center;">
-                <video src="videos/basement.mp4" controls autoplay loop muted style="max-width: 100%; width: 350px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
-                <video src="videos/hall_2.mp4" controls autoplay loop muted style="max-width: 100%; width: 350px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
-                <video src="videos/hall_5.mp4" controls autoplay loop muted style="max-width: 100%; width: 350px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></video>
+            <div class="video-grid">
+                <video src="videos/basement.mp4" controls autoplay loop muted playsinline></video>
+                <video src="videos/hall_2.mp4" controls autoplay loop muted playsinline></video>
+                <video src="videos/hall_5.mp4" controls autoplay loop muted playsinline></video>
             </div>
-            <div style="height: 24px;"></div>
-
         </section>
         <section class="videos">
             <h2>Full Project Video</h2>
             <p>
                 Watch the following <a href="https://youtu.be/RYsQ3zmv30w" target="_blank" rel="noopener">video</a> for a comprehensive overview of the project.
             </p>
-            <div style="display: flex; justify-content: center; margin: 24px 0;">
-                <iframe width="1000" height="562" src="https://www.youtube.com/embed/RYsQ3zmv30w" title="Crowd Navigation in a Multi-Room Environment: a Model Predictive Control Framework for Mobile Robots" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="video-embed">
+                <iframe src="https://www.youtube.com/embed/RYsQ3zmv30w" title="Crowd Navigation in a Multi-Room Environment: a Model Predictive Control Framework for Mobile Robots" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         </section>
-        <!-- <section class="features">
-            <h2>Key Features</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h3>🤖 Fault Tolerance</h3>
-                    <p>Robust policies that adapt to mechanical failures and maintain stable locomotion.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>🧠 Reinforcement Learning</h3>
-                    <p>Advanced RL algorithms trained to handle diverse locomotion challenges.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>🎯 Real-world Application</h3>
-                    <p>Practical solutions for quadruped robots in various environments.</p>
-                </div>
-            </div>
-        </section> -->
     </main>
 
     <footer>
